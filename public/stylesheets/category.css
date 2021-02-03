@@ -1,0 +1,44 @@
+.filter {
+  background: #fff;
+  padding: 50px;
+}
+.filter ul li.vendor {
+  float: left;
+  width: 12.41%;
+  border: 1px solid #eee;
+  height: 40px;
+  line-height: 40px;
+  position: relative;
+  margin: 0 0 -1px -1px;
+  color: #288ad6;
+  text-align: center;
+}
+@media only screen and (max-width: 576px) {
+  .filter ul li.vendor {
+    width: 100%;
+  }
+}
+.filter ul li.vendor img {
+  max-height: 70%;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+}
+.filter .filter-by-price {
+  margin-top: 20px;
+}
+.filter .filter-by-price label {
+  padding-right: 10px;
+}
+.filter .filter-by-price a {
+  padding-right: 10px;
+  color: #288ad6;
+}
+.filter .filter-by-price a:hover {
+  color: #212529;
+}
+
+/*# sourceMappingURL=category.css.map */

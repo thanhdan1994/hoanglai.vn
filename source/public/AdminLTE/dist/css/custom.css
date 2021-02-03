@@ -1,0 +1,55 @@
+/*.fa-print:before {*/
+/*  content: url("../img/ink-cartridge-refill.png");*/
+/*}*/
+
+#box-product-parameters {
+  margin: 20px auto;
+}
+
+#box-product-parameters .product-parameter {
+  margin-bottom: 20px;
+}
+
+span.file-upload-browse {
+  background-size: cover !important;
+  background-position: center !important;
+  width: 300px; height: 200px;
+  position: relative;
+  border: 1px solid #eee;
+}
+
+.form-group label.js-close-image-preview {
+  position: absolute;
+  color: #1100ff;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  background: #fff;
+  border-radius: 50%;
+  align-items: center;
+  margin: 0 0 0 5px;
+}
+
+.form-group label.js-close-image-preview-2 {
+  position: absolute;
+  color: #1100ff;
+  z-index: 1;
+  width: 18px;
+  height: 18px;
+  font-size: 18px;
+  background: #fff;
+  border-radius: 50%;
+  align-items: center;
+  margin: 0;
+}
+.note-editor {
+  margin: auto;
+}
+.note-editor img {
+  width: 100%;
+}
+
+table#example2 {
+  margin-bottom: 20px;
+}

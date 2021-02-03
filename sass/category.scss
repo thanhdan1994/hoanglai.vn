@@ -1,0 +1,42 @@
+.filter {
+    background: #fff;
+    padding: 50px;
+    ul {
+        li.vendor {
+            float: left;
+            width: 12.41%;
+            @media only screen and (max-width: 576px) {
+                width: 100%;
+            }
+            border: 1px solid #eee;
+            height: 40px;
+            line-height: 40px;
+            position: relative;
+            margin: 0 0 -1px -1px;
+            color: #288ad6;
+            text-align: center;
+            img {
+                max-height: 70%;
+                position: absolute;
+                left: 0;
+                right: 0;
+                top: 0;
+                bottom: 0;
+                margin: auto;
+            }
+        }
+    }
+    .filter-by-price {
+        margin-top: 20px;
+        label {
+            padding-right: 10px;
+        }
+        a {
+            padding-right: 10px;
+            color: #288ad6;
+            &:hover {
+                color: #212529;
+            }
+        }
+    }
+}

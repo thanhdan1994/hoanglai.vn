@@ -1,0 +1,188 @@
+body {
+  background: #fff;
+}
+
+.box-images img {
+  width: 100%;
+}
+.box-images ul li {
+  border: 1px solid #eee;
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 576px) {
+  .article {
+    margin-bottom: 50px;
+  }
+}
+.article a {
+  color: skyblue;
+}
+.article img {
+  max-width: 100%;
+}
+.article .vote {
+  display: flex;
+  flex-direction: column;
+  padding: 20px 0 20px 5px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  border-left: 5px solid #edc51c;
+  font-size: 0.9rem;
+}
+.article .vote .header-vote {
+  display: flex;
+}
+.article .vote .header-vote span.question {
+  width: 40%;
+}
+.article .vote .header-vote span.thanks-question {
+  color: #288ad6;
+  font-weight: 700;
+}
+.article .vote .header-vote div.answer {
+  width: 60%;
+  display: flex;
+  justify-content: space-around;
+}
+.article .vote .header-vote div.answer a {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.article .vote .header-vote div.answer a i.happy-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../public/img/happy-face-icon-16x16.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 20px 10px 20px;
+}
+.article .vote .header-vote div.answer a i.unhappy-icon {
+  width: 20px;
+  height: 20px;
+  background-image: url(../../public/img/unhappy-face-icon-16x16.png);
+  background-size: contain;
+  background-repeat: no-repeat;
+  margin: 0 20px 10px 20px;
+}
+.article .vote .reason-vote {
+  padding-top: 20px;
+}
+.article .vote .reason-vote textarea {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  display: block;
+  width: 95%;
+  height: 70px;
+  margin: 0 auto;
+  padding: 10px;
+  font-size: 13px;
+}
+.article .vote .reason-vote p {
+  width: 91%;
+  margin: 0 auto;
+  font-size: 13px;
+  padding: 7px 0;
+}
+.article .vote .reason-vote div.dropdown {
+  display: block;
+  width: 91.2%;
+  position: relative;
+  margin: 0 0 7px 4.6%;
+}
+.article .vote .reason-vote div.dropdown span {
+  color: #288ad6;
+  border: 1px solid #288ad6;
+  border-radius: 4px;
+  padding: 5px 10px;
+  display: block;
+  font-size: 14px;
+  background-color: #fff;
+  cursor: pointer;
+}
+.article .vote .reason-vote div.dropdown span::after {
+  content: "";
+  width: 0;
+  height: 0;
+  border-top: 6px solid #288ad6;
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+  float: right;
+  margin-top: 8px;
+}
+.article .vote .reason-vote div.dropdown div {
+  background: #fff;
+  border: 1px solid #d9d9d9;
+  border-radius: 4px;
+  box-shadow: 0 10px 10px 0 rgba(0, 0, 0, 0.1);
+  padding-bottom: 10px;
+  position: absolute;
+  left: 0;
+  top: 41px;
+  z-index: 11;
+  width: 99.3%;
+  display: none;
+}
+.article .vote .reason-vote a.submit {
+  color: #288ad6;
+  font-size: 14px;
+  display: block;
+  background: #f6f5f6;
+  text-align: center;
+  width: 100px;
+  height: 33px;
+  line-height: 33px;
+  border-radius: 4px;
+  float: right;
+  margin: 0 4.4% 10px 0;
+}
+
+.footer, .header {
+  background: #eee;
+}
+
+.are-price strong {
+  font-size: 1.3rem;
+  color: #bf081f;
+}
+.are-price i {
+  color: #bf081f;
+}
+
+.parameter {
+  display: block;
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  padding-top: 10px;
+}
+.parameter li {
+  display: table;
+  background: #fff;
+  width: 100%;
+  border-top: 1px solid #eee;
+  padding: 5px 0;
+}
+.parameter li span {
+  display: table-cell;
+  width: 40%;
+  vertical-align: top;
+  padding: 5px 0;
+  font-size: 14px;
+  color: #666;
+}
+.parameter li div {
+  display: table-cell;
+  width: auto;
+  vertical-align: top;
+  padding: 6px 5px;
+  font-size: 14px;
+  color: #333;
+}
+.parameter li div a {
+  color: #288ad6;
+}
+
+/*# sourceMappingURL=detail.css.map */

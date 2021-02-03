@@ -1,0 +1,121 @@
+.footer {
+    padding: 20px 0;
+    background: #fff;
+    border-top: 5px solid #edc51c;
+    .multiple-logo {
+        display: flex;
+        flex-direction: row;
+        @media only screen and (max-width: 576px) {
+            flex-direction: column;
+        }
+        .main-logo {
+            margin-top: -22px;
+            img {
+                width: 185px;
+                @media only screen and (max-width: 576px) {
+                    display: block;
+                    margin: auto;
+                }
+            }
+        }
+        .vendor-logos {
+            margin-left: 20px;
+            display: flex;
+            flex-direction: column;
+            h2 {
+                font-size: 1.4rem;
+                font-weight: 700;
+                @media only screen and (max-width: 576px) {
+                    font-size: 1rem;
+                    text-align: center;
+                }
+            }
+            .logos {
+                display: flex;
+                @media only screen and (max-width: 576px) {
+                    flex-direction: column;
+                }
+                li {
+                    padding: 10px;
+                    margin: auto;
+                }
+            }
+        }
+    }
+    .copyright {
+        color: #535353;
+    }
+
+    .row {
+        border-bottom: 1px dashed #858585;
+    }
+
+    .social {
+        @media only screen and (max-width: 576px) {
+            padding: 10px 0;
+        }
+        ul  {
+            margin-top: 25px;
+            display: flex;
+            li {
+                a {
+                    display: flex;
+                }
+                i.icon-social-facebook {
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../../public/img/facebook-icon-24x24.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 10px;
+                    margin-top: -5px;
+                }
+                i.icon-social-instagram {
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../../public/img/instagram-icon-24x24.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 10px;
+                    margin-top: -5px;
+                }
+                i.icon-social-youtube {
+                    width: 24px;
+                    height: 24px;
+                    background-image: url(../../public/img/youtube-icon-24x24.png);
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    margin-right: 10px;
+                    margin-top: -5px;
+                }
+            }
+        }
+    }
+
+    dl {
+        margin: 20px 0;
+        dt {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        dd {
+            a {
+                display: flex;
+            }
+            i.icon-phone {
+                width: 24px;
+                height: 24px;
+                background-image: url(../../public/img/viber-icon-24x24.png);
+                margin-right: 10px;
+                margin-top: -2px;
+            }
+            i.icon-mail {
+                width: 24px;
+                height: 24px;
+                background-image: url(../../public/img/gmail-icon-24x24.png);
+                margin-right: 10px;
+                margin-top: -2px;
+            }
+        }
+    }
+}
