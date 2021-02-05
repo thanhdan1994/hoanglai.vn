@@ -179,18 +179,5 @@
             slidesAds[slideIndex-1].style.display = "block";
             slidesAds[slideIndex-1].classList.add("show");
         }
-
-        function closeMenu() {
-            let over = document.getElementsByClassName('over')[0];
-            let subnav = document.getElementsByClassName('subnav')[0];
-            subnav.style.display = 'none';
-            over.style.display = 'none';
-        }
-        function openMenu() {
-            let over = document.getElementsByClassName('over')[0];
-            let subnav = document.getElementsByClassName('subnav')[0];
-            subnav.style.display = 'block';
-            over.style.display = 'block';
-        }
     </script>
 @endsection

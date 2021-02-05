@@ -225,6 +225,20 @@
     <script src="/stylesheets/js/jquery-3.3.1.slim.min.js"></script>
     <script src="/stylesheets/js/popper.min.js"></script>
     <script src="/stylesheets/js/bootstrap.min.js"></script>
+    <script>
+        function closeMenu() {
+            let over = document.getElementsByClassName('over')[0];
+            let subnav = document.getElementsByClassName('subnav')[0];
+            subnav.style.display = 'none';
+            over.style.display = 'none';
+        }
+        function openMenu() {
+            let over = document.getElementsByClassName('over')[0];
+            let subnav = document.getElementsByClassName('subnav')[0];
+            subnav.style.display = 'block';
+            over.style.display = 'block';
+        }
+    </script>
     @yield('js')
 </body>
 </html>

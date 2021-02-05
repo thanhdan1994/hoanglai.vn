@@ -5,33 +5,7 @@
 @endsection
 
 @section('content')
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-8 slide-images">
-                <div class="mt80">
-                    <div class="slideshow-container">
-                        <div class="slideshow-ads fade">
-                            <img src="https://hoanglai.vn/images/banner/cho-thue-may-photocopy-2.webp"/>
-                        </div>
-                        <div class="slideshow-ads fade">
-                            <img src="https://hoanglai.vn/images/banner/nap-muc-may-photocopy-may-in.webp"/>
-                        </div>
-                        <div class="slideshow-ads fade">
-                            <img src="https://hoanglai.vn/images/banner/cho-thue-may-photocopy-1.webp"/>
-                        </div>
-                        <!-- Next and previous buttons -->
-                        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-                        <a class="next" onclick="plusSlides(1)">&#10095;</a>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4">
-                <div class="mt80 ads-right">
-                    <img src="https://mucinvinamax.com/content/uploads/Banner.jpg" width="100%" height="320px"/>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include('layouts.banners')
     <div class="container mt40">
         <div class="row">
             <div class="col-lg-12 clear-padding">
