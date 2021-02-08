@@ -26,7 +26,15 @@
                 <h4>
                     <a href="{{ route('home.product-category.cartridge') }}">
                         <i class="icon-cartridge"></i>
-                        <span>HỘP MỰC MÁY IN</span>
+                        <span>HỘP MỰC IN</span>
+                    </a>
+                </h4>
+            </li>
+            <li>
+                <h4>
+                    <a href="{{ route('home.product-category.list-photocopy-rent') }}">
+                        <i class="icon-rent"></i>
+                        <span>THUÊ MÁY PHOTOCOPY</span>
                     </a>
                 </h4>
             </li>
@@ -63,6 +71,10 @@
             <a href="{{ route('home.product-category.cartridge') }}">
                 <i class="icon-cartridge"></i>
                 <span>HỘP MỰC MÁY IN</span>
+            </a>
+            <a href="{{ route('home.product-category.list-photocopy-rent') }}">
+                <i class="icon-rent"></i>
+                <span>THUÊ MÁY PHOTOCOPY</span>
             </a>
             <a href="{{ route('home.articles.news') }}">
                 <i class="icon-news"></i>

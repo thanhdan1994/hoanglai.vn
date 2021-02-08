@@ -27,9 +27,10 @@ class DatabaseSeeder extends Seeder
             CartridgeSeeder::class,
             PhotocopySeeder::class,
             ArticleTypeSeeder::class,
-            ServiceSeeder::class,
             NewsSeeder::class,
-            SuLySuCoSeeder::class
+            SuLySuCoSeeder::class,
+            ServiceSeeder::class,
+            ProductRentSeeder::class,
         ]);
     }
 }

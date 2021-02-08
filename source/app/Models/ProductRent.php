@@ -9,11 +9,12 @@ use Spatie\MediaLibrary\HasMedia;
 use Spatie\MediaLibrary\InteractsWithMedia;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
-class Product extends Model implements HasMedia
+class ProductRent extends Model implements HasMedia
 {
     use HasFactory;
     use InteractsWithMedia;
 
+    public $table = 'products_rent';
     /**
      * The attributes that are mass assignable.
      *
@@ -21,13 +22,11 @@ class Product extends Model implements HasMedia
      */
     protected $fillable = [
         'name',
-        'category_id',
         'vendor_id',
         'description',
         'content',
         'parameters',
-        'price',
-        'discount',
+        'price_rent',
         'favorite_flg',
         'status'
     ];
@@ -42,17 +41,6 @@ class Product extends Model implements HasMedia
         'favorite_flg' => 'boolean',
         'status' => 'boolean',
     ];
-
-    /**
-     * Scope a query to only include discount products.
-     *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
-     */
-    public function scopeDiscount($query)
-    {
-        return $query->where('discount','>', 0);
-    }
 
     /**
      * Scope a query to only include favorite products.
@@ -88,11 +76,6 @@ class Product extends Model implements HasMedia
             });
     }
 
-    public function category()
-    {
-        return $this->belongsTo(Category::class);
-    }
-
     public function vendor()
     {
         return $this->belongsTo(Vendor::class);
@@ -100,7 +83,7 @@ class Product extends Model implements HasMedia
 
     public function images()
     {
-        return $this->belongsToMany(Media::class, 'media_product');
+        return $this->belongsToMany(Media::class, 'media_product_rent');
     }
 
     public function thumbnail()
@@ -143,8 +126,8 @@ class Product extends Model implements HasMedia
         $this->attributes['slug'] = Str::of($value)->slug('-');
     }
 
-    public function setPriceAttribute($value)
+    public function setPriceRentAttribute($value)
     {
-        $this->attributes['price'] = str_replace(',', '', $value);
+        $this->attributes['price_rent'] = str_replace(',', '', $value);
     }
 }

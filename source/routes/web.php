@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\VendorController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\ProductController;
@@ -7,6 +8,7 @@ use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleTypeArticleController;
 use Illuminate\Http\Request;
 use App\Models\Product;
+use App\Models\ProductRent;
 use App\Models\Article;
 use App\Models\Vendor;
 
@@ -46,6 +48,13 @@ Route::get('/{slug}/p{id}.html', function ($slug, $id) {
     $productsBestSell = Product::favorite()->active()->where('id', '<>', $id)->orderBy('id', 'desc')->limit(10)->get();
     return view('product-detail', compact('product', 'productsDiscount', 'productsBestSell'));
 })->name('home.product');
+
+Route::get('/{slug}/r{id}.html', function ($slug, $id) {
+    $product = ProductRent::where(['slug' => $slug, 'id' => $id])->firstOrFail();
+    $productsDiscount = Product::discount()->active()->where('id', '<>', $id)->orderBy('id', 'desc')->limit(9)->get();
+    $productsBestSell = Product::favorite()->active()->where('id', '<>', $id)->orderBy('id', 'desc')->limit(10)->get();
+    return view('product-rent-detail', compact('product', 'productsDiscount', 'productsBestSell'));
+})->name('home.product-rent');
 
 Route::get('/{slug}/n{id}.html', function ($slug, $id) {
     $news = Article::where(['slug' => $slug, 'id' => $id])->firstOrFail();
@@ -114,6 +123,36 @@ Route::get('/may-photocopy.html', function (Request $request) {
     return view('photocopy', compact('products', 'articles', 'productsBestSell', 'vendors'));
 })->name('home.product-category.photocopy');
 
+Route::get('/danh-sach-may-photocopy-cho-thue.html', function (Request $request) {
+    $vendors = Vendor::all();
+    $articles = Article::favorite()->active()->orderBy('id', 'desc')->limit(4)->get();
+    $productQuery = ProductRent::active();
+    if ($vendor = $request->get('brand')) {
+        $productQuery->where('vendor_id', $vendor);
+    }
+    if ($price = $request->get('price')) {
+        switch ($price) {
+            case PRICE_UNDER_5:
+                $productQuery->where('price_rent', '<', 5000000.00);
+                break;
+            case PRICE_OVER_7:
+                $productQuery->where('price_rent', '>', 7000000.00);
+                break;
+            case PRICE_UNDER_10:
+                $productQuery->where('price_rent', '<', 10000000.00);
+                break;
+            case PRICE_OVER_10:
+                $productQuery->where('price_rent', '>', 10000000.00);
+                break;
+            default:
+                break;
+        }
+    }
+    $products = $productQuery->limit(6)->get();
+    $productsBestSell = Product::favorite()->active()->orderBy('id', 'desc')->limit(6)->get();
+    return view('list-photocopy-rent', compact('products', 'articles', 'productsBestSell', 'vendors'));
+})->name('home.product-category.list-photocopy-rent');
+
 Route::get('/hop-muc.html', function (Request $request) {
     $vendors = Vendor::all();
     $articles = Article::favorite()->active()->orderBy('id', 'desc')->limit(4)->get();
@@ -157,8 +196,12 @@ Route::get('/su-co-may-in-may-photocopy-thuong-gap.html', function () {
 })->name('home.articles.xulysuco');
 
 Route::prefix('admin')->middleware('auth.basic')->group(function () {
+    Route::get('', function () {
+       return redirect()->route('categories.products.index', 1);
+    });
     Route::resource('categories.products', CategoryProductController::class);
     Route::resource('article_type.articles', ArticleTypeArticleController::class);
     Route::resource('products', ProductController::class);
     Route::resource('articles', ArticleController::class);
+    Route::resource('vendors', VendorController::class);
 });

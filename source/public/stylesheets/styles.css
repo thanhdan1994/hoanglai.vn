@@ -18,6 +18,10 @@
   background-image: url(/img/news-icon-menu.png);
 }
 
+.icon-rent {
+    background-image: url(/img/rent-icon-menu.png);
+}
+
 .icon-phone-fixed {
     background-image: url(/img/phone-call.png);
 }
@@ -72,11 +76,11 @@
   font-weight: 800;
 }
 .header ul li i {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   background-size: contain;
   background-repeat: no-repeat;
-  margin-right: 10px;
+  margin-right: 5px;
   margin-top: -5px;
 }
 .header ul li a {
@@ -84,6 +88,7 @@
 }
 .header ul li a span {
   margin-top: 5px;
+  font-size: 13px;
 }
 .header .subnav {
   display: none;

@@ -41,9 +41,6 @@
             <li class="nav-item d-none d-sm-inline-block">
                 <a href="/" class="nav-link">Trang chủ</a>
             </li>
-            <li class="nav-item d-none d-sm-inline-block">
-                <a href="/" class="nav-link">Liên hệ kỹ thuật</a>
-            </li>
         </ul>
     </nav>
     <!-- /.navbar -->
@@ -74,7 +71,7 @@
                     <!-- Add icons to the links using the .nav-icon class
                          with font-awesome or any other icon font library -->
                     <li class="nav-item">
-                        <a href="javascript: void(0)" class="nav-link active">
+                        <a href="javascript: void(0)" class="nav-link">
                             <i class="nav-icon fas fa-print"></i>
                             <p> SẢN PHẨM<i class="right fas fa-angle-left"></i></p>
                         </a>
@@ -100,7 +97,7 @@
                         </ul>
                     </li>
                     <li class="nav-item">
-                        <a href="javascript: void(0)" class="nav-link active">
+                        <a href="javascript: void(0)" class="nav-link">
                             <i class="nav-icon fas fa-newspaper"></i>
                             <p>DỊCH VỤ - TIN TỨC<i class="right fas fa-angle-left"></i></p>
                         </a>
@@ -124,6 +121,12 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('vendors.index') }}" class="nav-link">
+                            <i class="nav-icon fab fa-ubuntu"></i>
+                            <p>Danh sách nhà cung cấp</p>
+                        </a>
                     </li>
                 </ul>
             </nav>
