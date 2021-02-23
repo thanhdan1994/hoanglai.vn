@@ -9,7 +9,7 @@
                         </a>
                     </div>
                     <div class="vendor-logos">
-                        <h2>CÔNG TY GIẢI PHÁP IN HOÀNG LAI</h2>
+                        <h2>{{ $settings['companyName'] }}</h2>
                         <ul class="logos">
                             <li>
                                 <a href="javascript: void(0)">
@@ -29,7 +29,8 @@
                         </ul>
                     </div>
                 </div>
-                <p class="copyright">Địa chỉ: 47/52/15 Bùi Đình Tuý, Phường 24, Bình Thạnh, Hồ Chí Minh, Việt Nam</p>
+                <p class="copyright">Địa chỉ: {{ $settings['address1'] }}</p>
+                {!!  !empty($settings['address2']) ? '<p class="copyright">Địa chỉ: '. $settings['address2'].'</p>' : ''  !!}
             </div>
             <div class="col-lg-4">
                 <div class="social">
@@ -46,20 +47,20 @@
             <div class="col-lg-4">
                 <dl>
                     <dt>TƯ VẤN THUÊ MÁY PHOTOCOPY</dt>
-                    <dd class="mb10"><a href="tel:0909144005"><i class="icon-phone"></i>0909.144.005</a></dd>
-                    <dd><a href="mailto:hoangnhan1890@gmail.com"><i class="icon-mail"></i>hoangnhan1890@gmail.com</a></dd>
+                    <dd class="mb10"><a href="tel:{{$settings['phone1']}}"><i class="icon-phone"></i>{{$settings['phone1']}}</a></dd>
+                    <dd><a href="mailto:{{$settings['email']}}"><i class="icon-mail"></i>{{$settings['email']}}</a></dd>
                 </dl>
             </div>
             <div class="col-lg-4">
                 <dl>
                     <dt>HỖ TRỢ KỸ THUẬT</dt>
-                    <dd class="mb10"><a href="tel:0909144005"><i class="icon-phone"></i>0909.144.005 (Mr.Nhân)</a></dd>
+                    <dd class="mb10"><a href="tel:{{$settings['phone2']}}"><i class="icon-phone"></i>{{$settings['phone2']}}</a></dd>
                 </dl>
             </div>
             <div class="col-lg-4">
                 <dl>
                     <dt>GỌI MUA HÀNG</dt>
-                    <dd class="mb10"><a href="tel:0909144005">0909.144.005 (Mr.Nhân)</a></dd>
+                    <dd class="mb10"><a href="tel:{{$settings['phone3']}}">{{$settings['phone3']}}</a></dd>
 {{--                    <dd class="mb10"><a href="tel:0909144005">0909.146.005 (Ms.Nhung)</a></dd>--}}
                 </dl>
             </div>

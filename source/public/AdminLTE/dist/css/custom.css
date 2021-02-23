@@ -18,6 +18,10 @@ span.file-upload-browse {
   border: 1px solid #eee;
 }
 
+span.file-upload-browse.logo {
+  width: 220px; height: 48px;
+}
+
 .form-group label.js-close-image-preview {
   position: absolute;
   color: #1100ff;

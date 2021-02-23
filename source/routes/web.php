@@ -64,7 +64,7 @@ Route::get('/{slug}/n{id}.html', function ($slug, $id) {
 })->name('home.news');
 
 Route::get('/may-in.html', function (Request $request) {
-    $vendors = Vendor::all();
+    $vendors = Vendor::where('printer_flg', true)->get();
     $articles = Article::favorite()->active()->orderBy('id', 'desc')->limit(4)->get();
     $productQuery = Product::active()->where('category_id', CATEGORY_PRINTER);
     if ($vendor = $request->get('brand')) {
@@ -94,7 +94,7 @@ Route::get('/may-in.html', function (Request $request) {
 })->name('home.product-category.printer');
 
 Route::get('/may-photocopy.html', function (Request $request) {
-    $vendors = Vendor::all();
+    $vendors = Vendor::active()->where('photocopy_flg', true)->get();
     $articles = Article::favorite()->active()->orderBy('id', 'desc')->limit(4)->get();
     $productQuery = Product::active()->where('category_id', CATEGORY_PHOTOCOPY);
     if ($vendor = $request->get('brand')) {
@@ -124,7 +124,7 @@ Route::get('/may-photocopy.html', function (Request $request) {
 })->name('home.product-category.photocopy');
 
 Route::get('/danh-sach-may-photocopy-cho-thue.html', function (Request $request) {
-    $vendors = Vendor::all();
+    $vendors = Vendor::active()->where('photocopy_flg', true)->get();
     $articles = Article::favorite()->active()->orderBy('id', 'desc')->limit(4)->get();
     $productQuery = ProductRent::active();
     if ($vendor = $request->get('brand')) {
@@ -154,7 +154,7 @@ Route::get('/danh-sach-may-photocopy-cho-thue.html', function (Request $request)
 })->name('home.product-category.list-photocopy-rent');
 
 Route::get('/hop-muc.html', function (Request $request) {
-    $vendors = Vendor::all();
+    $vendors = Vendor::active()->where('cartridge_flg', true)->get();
     $articles = Article::favorite()->active()->orderBy('id', 'desc')->limit(4)->get();
     $productQuery = Product::active()->where('category_id', CATEGORY_CARTRIDGE);
     if ($vendor = $request->get('brand')) {
@@ -204,4 +204,18 @@ Route::prefix('admin')->middleware('auth.basic')->group(function () {
     Route::resource('products', ProductController::class);
     Route::resource('articles', ArticleController::class);
     Route::resource('vendors', VendorController::class);
+    Route::get('settings', function () {
+        return view('admin.settings');
+    })->name('settings');
+    Route::put('settings', function (\App\Http\Requests\UpdateSettingRequest $request) {
+        $file = fopen('settings.txt', 'w');
+        fwrite($file, 'companyName=' . $request->get('companyName') . PHP_EOL);
+        fwrite($file, 'phone1=' . $request->get('phone1') . PHP_EOL);
+        fwrite($file, 'phone2=' . $request->get('phone2') . PHP_EOL);
+        fwrite($file, 'phone3=' . $request->get('phone3') . PHP_EOL);
+        fwrite($file, 'address1=' . $request->get('address1') . PHP_EOL);
+        fwrite($file, 'email=' . $request->get('email') . PHP_EOL);
+        fclose($file);
+        return redirect()->route('settings')->with('message', 'Cập nhập thông tin thành công!');
+    })->name('settings.update');
 });

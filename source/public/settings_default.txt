@@ -1,0 +1,7 @@
+companyName=CÔNG TY GIẢI PHÁP IN HOÀNG LAI 1
+phone1=0909144005
+phone2=0909144005
+phone3=0909144005
+email=hoangnhan1890@gmail.com
+address1=47/52/15 Bùi Đình Tuý, Phường 24, Bình Thạnh, Hồ Chí Minh, Việt Nam
+address2=47/52/15 Bùi Đình Tuý, Phường 24, Bình Thạnh, Hồ Chí Minh, Việt Nam 2

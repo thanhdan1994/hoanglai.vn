@@ -45,16 +45,13 @@
                                     </div>
                                 @endif
                                 <div class="p-3">
-                                    <a href="{{ route('products.create') }}" class="btn btn-block btn-outline-primary"><i class="fa fa-edit"></i> Thêm sản phẩm mới</a>
+                                    <a href="{{ route('vendors.create') }}" class="btn btn-block btn-outline-primary"><i class="fa fa-edit"></i> Thêm nhà cung cấp mới</a>
                                 </div>
                                 <table id="example2" class="table table-bordered table-hover">
                                     <thead>
                                     <tr>
-                                        <th style="width: 40%">Tên nhà cung cấp</th>
+                                        <th style="width: 20%">Tên nhà cung cấp</th>
                                         <th>Logo</th>
-                                        <th>Máy in</th>
-                                        <th>Máy photocopy</th>
-                                        <th>Hộp mực in</th>
                                         <th></th>
                                     </tr>
                                     </thead>
@@ -62,23 +59,14 @@
                                     @foreach($vendors as $vendor)
                                         <tr>
                                             <td>{{ $vendor->name }}</td>
-                                            <td><img width="100px" height="70px" src="{{ $vendor->logo('thumb-70') }}" /> </td>
-                                            <td>{{ number_format($product->price) }}₫</td>
-                                            <td>{{ number_format($product->price - ($product->price * $product->discount / 100)) }}₫</td>
+                                            <td><img width="100px" height="70px" src="{{ $vendor->logo }}" /> </td>
                                             <td>
-                                                <a href="{{ route('products.edit', $product->id) }}" class="btn btn-block btn-outline-primary"><i class="fa fa-edit"></i> Chỉnh sửa thông tin</a>
-                                                <form style="margin-top: .5rem" method="post" action="{{route('products.destroy', $product->id)}}"
-                                                      onsubmit="return confirm('Bạn chắc chắn muốn xóa sản phẩm này?');">
-                                                    {{method_field('delete')}}
-                                                    {{csrf_field()}}
-                                                    <button type="submit" class="btn btn-block btn-outline-danger"><i class="fa fa-trash"></i>Xóa sản phẩm này</button>
-                                                </form>
+                                                <a href="{{ route('vendors.edit', $vendor->id) }}" class="btn btn-block btn-outline-primary"><i class="fa fa-edit"></i> Chỉnh sửa thông tin</a>
                                             </td>
                                         </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
-                                {{ $products->links() }}
                             </div>
                             <!-- /.card-body -->
                         </div>

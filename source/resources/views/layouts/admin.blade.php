@@ -125,7 +125,13 @@
                     <li class="nav-item">
                         <a href="{{ route('vendors.index') }}" class="nav-link">
                             <i class="nav-icon fab fa-ubuntu"></i>
-                            <p>Danh sách nhà cung cấp</p>
+                            <p>DANH SÁCH NHÀ CUNG CẤP</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="{{ route('settings') }}" class="nav-link">
+                            <i class="nav-icon fas fa-tools"></i>
+                            <p>CÀI ĐẶT THÔNG TIN</p>
                         </a>
                     </li>
                 </ul>

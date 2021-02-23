@@ -16,7 +16,11 @@ class CreateVendorsTable extends Migration
         Schema::create('vendors', function (Blueprint $table) {
             $table->id();
             $table->string('name'); // HP, CANON, XEROX,...
-            $table->string('logo');
+            $table->string('logo')->nullable();
+            $table->boolean('printer_flg')->default(true);
+            $table->boolean('photocopy_flg')->default(true);
+            $table->boolean('cartridge_flg')->default(true);
+            $table->boolean('status')->default(true);
             $table->timestamps();
         });
     }
