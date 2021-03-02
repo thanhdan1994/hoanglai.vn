@@ -41,6 +41,8 @@ class Product extends Model implements HasMedia
         'parameters' => 'array',
         'favorite_flg' => 'boolean',
         'status' => 'boolean',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     /**

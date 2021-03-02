@@ -1,5 +1,67 @@
 @extends('layouts.home')
 
+@section('title', 'Máy Văn Phòng Hoàng Lai - ' . $product->name . ' - hoanglai.vn')
+
+@section('meta')
+    <meta name="description" content="{{ $product->description }} - hoanglai.vn">
+    <meta name="keywords" content="Máy Văn Phòng Hoàng Lai - Cho thuê máy in, bán máy in, sữa chữa máy in nhanh chóng giá rẻ tại Tp.HCM - hoanglai.vn">
+    <!-- ----------------NEW META -------------------  -->
+    <meta name="generator" content="hoanglai.vn" />
+    <meta name="copyright" content="Máy Văn Phòng Hoàng Lai" />
+    <meta name="author" content="hoanglai.vn" />
+@endsection
+
+@section('ldJson')
+    <script type="application/ld+json">
+        {
+            "@context":"https://schema.org",
+            "@type":"Product",
+            "name":"{{ $product->name }}",
+            "image":[
+            @foreach ($product->images as $key => $image)
+                @if (($key + 1) < count($product->images))
+                    "{{ $image->getUrl() }}",
+                @else
+                    "{{ $image->getUrl() }}"
+                @endif
+            @endforeach
+            ],
+            "description":"{{ $product->description }}",
+            "brand":{"@type":"Thing","name":"{{$product->vendor->name}}"},
+            "aggregateRating":{"@type":"AggregateRating","ratingValue":4.0,"reviewCount":5},
+            "additionalProperty":[
+            @foreach($product->parameters as $key => $parameter)
+                @if (($key + 1) < count($product->parameters))
+                    {"@type":"PropertyValue","name":"{{$parameter['key']}}","value":"{{$parameter['value']}}"},
+                @else
+                    {"@type":"PropertyValue","name":"{{$parameter['key']}}","value":"{{$parameter['value']}}"}
+                @endif
+            @endforeach
+            ],
+            "review": {
+                "@type": "Review",
+                "reviewRating": {
+                  "@type": "Rating",
+                  "ratingValue": "4",
+                  "bestRating": "5"
+                },
+                "author": {
+                  "@type": "Person",
+                  "name": "THANH DAN PC"
+                }
+            },
+            "offers": {
+                "@type": "Offer",
+                "url": "{{ route('home.product', ['slug' => $product->slug, 'id' => $product->id]) }}",
+                "priceCurrency": "VND",
+                "price": "{{ number_format($product->price - ($product->price * $product->discount / 100), 0, '.', '.') }}",
+                "priceValidUntil": "{{ $product->updated_at }}",
+                "availability": "http://schema.org/InStock"
+            }
+        }
+    </script>
+@endsection
+
 @section('css')
     <link rel="stylesheet" href="/stylesheets/detail.css">
 @endsection

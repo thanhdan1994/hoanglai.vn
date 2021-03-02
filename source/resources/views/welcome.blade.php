@@ -1,5 +1,16 @@
 @extends('layouts.home')
 
+@section('title', 'Máy Văn Phòng Hoàng Lai - Cho thuê máy in, bán máy in, sữa chữa máy in nhanh chóng giá rẻ tại Tp.HCM - hoanglai.vn')
+
+@section('meta')
+    <meta name="description" content="Máy Văn Phòng Hoàng Lai - Cho thuê máy in, bán máy in, sữa chữa máy in nhanh chóng giá rẻ tại Tp.HCM - hoanglai.vn">
+    <meta name="keywords" content="Máy Văn Phòng Hoàng Lai - Cho thuê máy in, bán máy in, sữa chữa máy in nhanh chóng giá rẻ tại Tp.HCM - hoanglai.vn">
+    <!-- ----------------NEW META -------------------  -->
+    <meta name="generator" content="hoanglai.vn" />
+    <meta name="copyright" content="Máy Văn Phòng Hoàng Lai" />
+    <meta name="author" content="hoanglai.vn" />
+@endsection
+
 @section('content')
     @include('layouts.banners')
     <div class="container mt40">

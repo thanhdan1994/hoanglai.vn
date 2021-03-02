@@ -1,5 +1,47 @@
 @extends('layouts.home')
 
+@section('title', 'Máy Văn Phòng Hoàng Lai - ' . $news->name . ' - hoanglai.vn')
+
+@section('meta')
+    <meta name="description" content="{{ $news->description }} - hoanglai.vn">
+    <meta name="keywords" content="Máy Văn Phòng Hoàng Lai - Cho thuê máy in, bán máy in, sữa chữa máy in nhanh chóng giá rẻ tại Tp.HCM - hoanglai.vn">
+    <!-- ----------------NEW META -------------------  -->
+    <meta name="generator" content="hoanglai.vn" />
+    <meta name="copyright" content="Máy Văn Phòng Hoàng Lai" />
+    <meta name="author" content="hoanglai.vn" />
+@endsection
+
+@section('ldJson')
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "NewsArticle",
+          "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://hoanglai.vn/tin-tuc-cong-nghe.html"
+          },
+          "headline": "{{ $news->name }}",
+          "image": [
+            "{{ $news->thumbnailUrl }}"
+          ],
+          "datePublished": "{{ $news->updated_at }}",
+          "dateModified": "{{ $news->updated_at }}",
+          "author": {
+            "@type": "Person",
+            "name": "Máy Văn Phòng Hoàng Lai"
+          },
+          "publisher": {
+            "@type": "Organization",
+            "name": "hoanglai.vn",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://hoanglai.vn/img/logo.png"
+            }
+          }
+        }
+    </script>
+@endsection
+
 @section('css')
     <link rel="stylesheet" href="/stylesheets/detail-news.css">
 @endsection
