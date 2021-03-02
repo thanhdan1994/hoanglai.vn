@@ -167,11 +167,11 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="inputProductPrice">Giá sản phẩm <span style="color: red;"><i>(*)</i></span></label>
-                                        <input type="text" id="product-price" class="form-control" id="inputProductPrice" placeholder="Nhập vào số sản phẩm" value="{{ number_format($product->price) }}">
+                                        <input type="text" name="price" id="product-price" class="form-control" placeholder="Nhập vào số sản phẩm" value="{{ number_format($product->price) }}">
                                     </div>
                                     <div class="form-group">
                                         <label for="inputDiscount">Giảm (ví dụ: giảm 10% thì nhập vào ô bên dưới là 10)</label>
-                                        <input type="text" id="product-price-discount" class="form-control" id="inputDiscount" placeholder="Nhập vào số sản phẩm" value="{{ $product->discount }}">
+                                        <input type="text" name="discount" id="product-price-discount" class="form-control" placeholder="Nhập vào số sản phẩm" value="{{ $product->discount }}">
                                     </div>
                                     <div class="form-check">
                                         <input type="checkbox" name="favorite_flg" {{ $product->favorite_flg ? 'checked' : '' }} data-bootstrap-switch>
