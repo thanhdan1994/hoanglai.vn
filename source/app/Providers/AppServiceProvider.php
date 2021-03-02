@@ -25,8 +25,8 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $mySettings = fopen('settings.txt', 'r') or die("Unable to open file!");
-        $data = fread($mySettings, filesize("settings.txt"));
+        $mySettings = fopen(public_path('settings.txt'), 'r') or die("Unable to open file!");
+        $data = fread($mySettings, filesize(public_path("settings.txt")));
         fclose($mySettings);
         $data = explode("\n", $data);
         foreach ($data as $key => $value) {
