@@ -123,6 +123,12 @@
                         </ul>
                     </li>
                     <li class="nav-item">
+                        <a href="{{ route('product-rent.index') }}" class="nav-link">
+                            <i class="nav-icon fas fa-history"></i>
+                            <p>THUÊ MÁY PHOTOCOPY</p>
+                        </a>
+                    </li>
+                    <li class="nav-item">
                         <a href="{{ route('vendors.index') }}" class="nav-link">
                             <i class="nav-icon fab fa-ubuntu"></i>
                             <p>DANH SÁCH NHÀ CUNG CẤP</p>

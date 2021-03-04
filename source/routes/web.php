@@ -1,16 +1,19 @@
 <?php
 
 use App\Http\Controllers\VendorController;
+use App\Models\Category;
+use App\Models\MediaProduct;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryProductController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ArticleController;
 use App\Http\Controllers\ArticleTypeArticleController;
 use Illuminate\Http\Request;
-use App\Models\Product;
 use App\Models\ProductRent;
 use App\Models\Article;
 use App\Models\Vendor;
+use Illuminate\Support\Str;
 
 /*
 |--------------------------------------------------------------------------
@@ -218,4 +221,90 @@ Route::prefix('admin')->middleware('auth.basic')->group(function () {
         fclose($file);
         return redirect()->route('settings')->with('message', 'Cập nhập thông tin thành công!');
     })->name('settings.update');
+
+    Route::get('product-rent', function () {
+        $products = ProductRent::orderBy('id', 'desc')->paginate(5);
+        $products->appends(['sort' => 'id']);
+        return view('admin.product_rent.index', compact('products'));
+    })->name('product-rent.index');
+
+    Route::get('product-rent/create', function () {
+        $vendors = Vendor::all();
+        return view('admin.product_rent.create', compact('vendors'));
+    })->name('product-rent.create');
+
+    Route::post('product-rent/store', function (\App\Http\Requests\StoreProductRentRequest $request) {
+        $data = $request->all();
+        $data['favorite_flg'] = $request->has('favorite_flg');
+        $data['status'] = $request->has('status');
+        DB::beginTransaction();
+        try {
+            $product = ProductRent::create($data);
+            if ($request->file('featured_image')) {
+                $media = $product
+                    ->addMedia($request->featured_image)
+                    ->toMediaCollection(env('COLLECTION_NAME_IMAGES'));
+                $product->featured_image = $media->id;
+                $product->save();
+            }
+            if ($request->get('images-base64')) {
+                \App\Models\MediaProductRent::where('product_rent_id', $product->id)->delete();
+                foreach ($request->get('images-base64') as $file) {
+                    $media = $product->addMediaFromBase64($file)->usingFileName(Str::random(20).'.jpg')->toMediaCollection(env('COLLECTION_NAME_IMAGES'));
+                    \App\Models\MediaProductRent::create([
+                        'media_id' => $media->id,
+                        'product_rent_id' => $product->id
+                    ]);
+                }
+            }
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('product-rent.create')->with('error', $exception->getMessage());
+        }
+        DB::commit();
+        return redirect()->route('product-rent.index')->with('message', 'Sản phẩm '. $product->name .' đã được thêm vào hệ thống!');
+    })->name('product-rent.store');
+
+    Route::get('product-rent/{product}/edit', function (ProductRent $product) {
+        $vendors = Vendor::all();
+        return view('admin.product_rent.edit', compact('product', 'vendors'));
+    })->name('product-rent.edit');
+
+    Route::put('product-rent/{product}/update', function (\App\Http\Requests\UpdateProductRentRequest $request, ProductRent $product) {
+        $data = $request->all();
+        $data['favorite_flg'] = $request->has('favorite_flg');
+        $data['status'] = $request->has('status');
+        DB::beginTransaction();
+        try {
+            $product->update($data);
+            if ($request->file('featured_image')) {
+                $media = $product
+                    ->addMedia($request->featured_image)
+                    ->toMediaCollection(env('COLLECTION_NAME_IMAGES'));
+                $product->featured_image = $media->id;
+                $product->save();
+            }
+            if ($request->get('images-base64')) {
+                \App\Models\MediaProductRent::where('product_rent_id', $product->id)->delete();
+                foreach ($request->get('images-base64') as $file) {
+                    $media = $product->addMediaFromBase64($file)->usingFileName(Str::random(20).'.jpg')->toMediaCollection(env('COLLECTION_NAME_IMAGES'));
+                    \App\Models\MediaProductRent::create([
+                        'media_id' => $media->id,
+                        'product_rent_id' => $product->id
+                    ]);
+                }
+            }
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            return redirect()->route('product-rent.edit', $product)->with('error', $exception->getMessage());
+        }
+        DB::commit();
+        return redirect()->route('product-rent.index')->with('message', 'Cập nhập thông tin sản phẩm thành công !');
+    })->name('product-rent.update');
+    Route::delete('product-rent/{id}', function ($id) {
+        $product = ProductRent::find($id);
+        $product->images()->detach();
+        $product->delete();
+        return redirect()->route('product-rent.index')->with('message', 'Sản phẩm <b>'. $product->name .'</b> đã được xóa khỏi hệ thống!');
+    })->name('product-rent.destroy');
 });
