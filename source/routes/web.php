@@ -1,8 +1,7 @@
 <?php
 
 use App\Http\Controllers\VendorController;
-use App\Models\Category;
-use App\Models\MediaProduct;
+use App\Models\Product;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryProductController;
