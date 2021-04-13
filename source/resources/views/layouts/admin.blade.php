@@ -77,19 +77,19 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('categories.products.index', CATEGORY_PRINTER) }}" class="nav-link">
+                                <a href="{{ route('categories.products.index', \App\Models\Category::CATEGORY_PRINTER) }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>MÁY IN</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('categories.products.index', CATEGORY_PHOTOCOPY) }}" class="nav-link">
+                                <a href="{{ route('categories.products.index', \App\Models\Category::CATEGORY_PHOTOCOPY) }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>MÁY PHOTOCOPY</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('categories.products.index', CATEGORY_CARTRIDGE) }}" class="nav-link">
+                                <a href="{{ route('categories.products.index', \App\Models\Category::CATEGORY_CARTRIDGE) }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>MỰC IN</p>
                                 </a>
@@ -103,19 +103,19 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="{{ route('article_type.articles.index', ARTICLE_SERVICE) }}" class="nav-link">
+                                <a href="{{ route('article_type.articles.index', \App\Models\ArticleType::ARTICLE_SERVICE) }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>DỊCH VỤ</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('article_type.articles.index', ARTICLE_NEWS) }}" class="nav-link">
+                                <a href="{{ route('article_type.articles.index', \App\Models\ArticleType::ARTICLE_NEWS) }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>TIN TỨC</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="{{ route('article_type.articles.index', ARTICLE_HELP_SERVICE) }}" class="nav-link">
+                                <a href="{{ route('article_type.articles.index', \App\Models\ArticleType::ARTICLE_HELP_SERVICE) }}" class="nav-link">
                                     <i class="far fa-circle nav-icon"></i>
                                     <p>SỰ CỐ MÁY</p>
                                 </a>

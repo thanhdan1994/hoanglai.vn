@@ -11,6 +11,11 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class Product extends Model implements HasMedia
 {
+    const PRICE_UNDER_5 = 'duoi-5-trieu';
+    const PRICE_OVER_7 = 'tren-7-trieu';
+    const PRICE_UNDER_10 = 'duoi-10-trieu';
+    const PRICE_OVER_10 = 'tren-10-trieu';
+
     use HasFactory;
     use InteractsWithMedia;
 
