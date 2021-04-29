@@ -187,6 +187,6 @@ class HomeController extends Controller
         }
         $products = $this->productRentRepo->getProductsRent($condition, 6);
         $productsBestSell = $this->productRepo->getProductsFavorite([], 'id', 'desc', 6);;
-        return view('printers', compact('products', 'articles', 'productsBestSell', 'vendors'));
+        return view('list-photocopy-rent', compact('products', 'articles', 'productsBestSell', 'vendors'));
     }
 }
