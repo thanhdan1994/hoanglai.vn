@@ -5,9 +5,9 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Models\ProductRent;
 use App\Models\Vendor;
-use App\Repositories\ArticleRepository;
-use App\Repositories\ProductRentRepository;
-use App\Repositories\ProductRepository;
+use App\Repositories\Interfaces\ArticleRepositoryInterface;
+use App\Repositories\Interfaces\ProductRentRepositoryInterface;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -19,9 +19,9 @@ class HomeController extends Controller
     protected $articleRepo;
 
     public function __construct(
-        ProductRepository $productRepository,
-        ProductRentRepository $productRentRepository,
-        ArticleRepository $articleRepository
+        ProductRepositoryInterface $productRepository,
+        ProductRentRepositoryInterface $productRentRepository,
+        ArticleRepositoryInterface $articleRepository
     ) {
         $this->productRepo = $productRepository;
         $this->productRentRepo = $productRentRepository;

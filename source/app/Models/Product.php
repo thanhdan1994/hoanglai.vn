@@ -133,6 +133,11 @@ class Product extends Model implements HasMedia
         return $thumbnail;
     }
 
+    public function getDiscountPriceAttribute()
+    {
+        return number_format($this->price - ($this->price * $this->discount / 100));
+    }
+
     public function setParametersAttribute($value)
     {
         $parameters = [];

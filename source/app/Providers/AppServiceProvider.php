@@ -2,6 +2,12 @@
 
 namespace App\Providers;
 
+use App\Repositories\ArticleRepository;
+use App\Repositories\Interfaces\ArticleRepositoryInterface;
+use App\Repositories\Interfaces\ProductRentRepositoryInterface;
+use App\Repositories\Interfaces\ProductRepositoryInterface;
+use App\Repositories\ProductRentRepository;
+use App\Repositories\ProductRepository;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\Facades\View;
 use Illuminate\Support\ServiceProvider;
@@ -15,7 +21,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register()
     {
-
+        $this->app->bind(ProductRepositoryInterface::class, ProductRepository::class);
+        $this->app->bind(ProductRentRepositoryInterface::class, ProductRentRepository::class);
+        $this->app->bind(ArticleRepositoryInterface::class, ArticleRepository::class);
     }
 
     /**

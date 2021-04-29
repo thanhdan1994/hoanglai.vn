@@ -43,14 +43,7 @@
                     <div class="row" id="box-products">
                         @foreach($products as $product)
                             <div class="col-lg-4 mt40">
-                                <article class="product">
-                                    <a href="{{ route('home.product', ['slug' => $product->slug, 'id' => $product->id]) }}" class="thumbnail" style="background-image: url({{$product->thumbnailUrl}});"></a>
-                                    <div class="description">
-                                        <h4><a href="{{ route('home.product', ['slug' => $product->slug, 'id' => $product->id]) }}">{{$product->name}}</a></h4>
-                                        <span class="price">Giá: {{ number_format($product->price - ($product->price * $product->discount / 100)) }}₫</span>
-                                        <del><span class="price"> {{ number_format($product->price) }}₫</span></del>
-                                    </div>
-                                </article>
+                                <x-product-item :product="$product"></x-product-item>
                             </div>
                         @endforeach
                     </div>
